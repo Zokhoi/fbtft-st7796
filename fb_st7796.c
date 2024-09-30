@@ -156,7 +156,7 @@ static int set_var(struct fbtft_par *par)
 {
   u8 madctl_par = 0;
 
-  if (!par->bgr)
+  if (par->bgr)
     madctl_par |= MADCTL_BGR;
   switch (par->info->var.rotate) {
   case 0:
@@ -254,8 +254,8 @@ static int blank(struct fbtft_par *par, bool on)
 
 static struct fbtft_display display = {
   .regwidth = 8,
-  .width = 240,
-  .height = 320,
+  .width = 320,
+  .height = 480,
   .gamma_num = 2,
   .gamma_len = 14,
   .gamma = HSD20_IPS_GAMMA,
